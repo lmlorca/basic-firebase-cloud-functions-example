@@ -9,6 +9,6 @@ const db = getFirestore()
 const adminAuth = getAuth()
 
 module.exports = {
-    db,
-    adminAuth,
+  db,
+  adminAuth,
 }

@@ -12,9 +12,9 @@ const { withAuth } = require('./with-auth')
 const app = require('express')()
 const cors = require('cors')
 app.use(
-    cors({
-        origin: 'http://localhost:3000',
-    })
+  cors({
+    origin: 'http://localhost:3000',
+  })
 )
 
 // users
