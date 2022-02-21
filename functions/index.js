@@ -10,6 +10,12 @@ const { withAuth } = require('./with-auth')
 
 // Initialize Express
 const app = require('express')()
+const cors = require('cors')
+app.use(
+    cors({
+        origin: 'http://localhost:3000',
+    })
+)
 
 // users
 app.post('/users/login', usersLogin)
@@ -18,6 +24,6 @@ app.post('/users/new', usersNew)
 
 // Posts
 app.post('/posts/new', withAuth, postsNew)
-app.get('/posts/all', withAuth, postsAll)
+app.get('/posts/all', postsAll)
 
 exports.api = functions.https.onRequest(app)

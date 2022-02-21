@@ -6,7 +6,7 @@ exports.usersLogin = async (req, res) => {
 
     if (!email || !password) {
         return res.status(400).json({
-            message: 'que te peines',
+            error: 'que te peines',
         })
     }
 
@@ -24,9 +24,7 @@ exports.usersLogin = async (req, res) => {
 
         const token = await userCredential.user.getIdToken()
 
-        return res.status(200).json({
-            token,
-        })
+        return res.status(200).json(userCredential.user)
     } catch (error) {
         console.error(error)
         return res.status(400).json({
